@@ -31,7 +31,15 @@ const SingleProductPage = async ({ params }) => {
             {data.price}
           </p>
           <p className="mb-5">{data.description}</p>
-          <div className="flex flex-col gap-2">
+          <div className="flex gap-5">
+            <div className="text-xl sm:text-3xl flex gap-5 border-2 border-green-500 items-center px-2 sm:px-3 cursor-pointer">
+              <span>-</span>
+              <span className="border-x-2 border-green-500 px-3 sm:px-4">{1}</span>
+              <span>+</span>
+            </div>
+            <button className="bg-green-700 px-3 sm:px-5  py-2 sm:py-3 text-white text-base sm:text-xl font-bold outline-none">ADD TO CART</button>
+          </div>
+          <div className="flex flex-col gap-2 mt-5">
             <div className="flex gap-1">
               <span className="font-bold">Rating: </span> 
               <div className="flex gap-1">
