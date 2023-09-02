@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
       <ReduxProvider>
       <Header/>
-        <div className='px-[10%]'>
+        <div className='px-5 sm:px-[10%]'>
         {children}
         </div>
         </ReduxProvider>

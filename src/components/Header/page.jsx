@@ -10,7 +10,7 @@ const Header = () => {
     <>
     <div>
         <div>
-            <nav className='px-[10%]  py-3 sm:py-5 flex justify-between items-center bg-green-600'>
+            <nav className='px-5 sm:px-[10%]  py-3 sm:py-5 flex justify-between items-center bg-green-600'>
                 <ul className='hidden md:flex gap-5 cursor-pointer'>
                 <Link href="/"><li className='font-bold text-xl'>Home</li></Link>
                 <li className='font-bold text-xl'>About</li>
