@@ -31,7 +31,7 @@ const CartItems = () => {
         <div className="flex gap-3">
           <h1 className="whitespace-nowrap overflow-hidden text-ellipsis max-w-[170px] sm:max-w-[200px] mb-3">{item.title}</h1>
           <AiOutlineCloseCircle size={25} className="cursor-pointer" 
-          onClick={()=>{dispatch(removeFromCart(item.id)); toast.success("Product Removed From Cart")}}/>
+          onClick={()=>{dispatch(removeFromCart(item.id));  dispatch(calculateCartSubtotal()); toast.success("Product Removed From Cart")}}/>
         </div>
         <div className="text-xl flex gap-5 border-2 px-3 border-green-500 items-center w-fit cursor-pointer bg-[#266b5d]">
           <button 
