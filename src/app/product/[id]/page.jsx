@@ -5,8 +5,11 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterest} from "r
 import {AiFillStar, AiOutlineStar} from "react-icons/ai"
 import useSWR from "swr";
 import { useDispatch, useSelector } from "react-redux";
-import { incrementQuantity, decrementQuantity, setQuantity} from "@/redux/quantitySlice";
+import { incrementQuantity, decrementQuantity} from "@/redux/quantitySlice";
 import { addToCart } from "@/redux/cartSlice";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import RelatedProducts from "@/components/Products/RelatedProducts/page"
 
 
 const SingleProductPage = ({ params }) => {
@@ -21,15 +24,17 @@ const SingleProductPage = ({ params }) => {
 
   const handleAddToCart = (productData, quantity)=>{
     dispatch(addToCart({...productData, quantity}));
-    console.log(cartItems);
+    toast.success("Product Added to Cart")
+    // console.log(cartItems);
   }
 
 
   return (
-    <div className="flex  flex-col lg:flex-row mx-[10%] mt-[5%] mb-5 gap-10">
+    <>
+    <div className="flex  flex-col lg:flex-row mt-[5%] mb-5 gap-10">
       <div className="left bg-white md:basis-[30%] p-8 rounded-md h-fit">
-        <div className="relative w-[45vw] h-[45vw] sm:w-[35vw] sm:h-[35vw] mx-auto">
-          <Image src={data?.image} alt="Product Image" fill={true} className="object-contain"></Image>
+        <div className="relative w-[45vw] h-[45vw] sm:w-[32vw] sm:h-[33vw] mx-auto">
+          <Image src={data? data.image: "/loading-img.jpg"} alt="Product Image" fill={true} className="object-contain"></Image>
         </div>
       </div>
       <div className="right">
@@ -81,7 +86,13 @@ const SingleProductPage = ({ params }) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
+        {/* {data? (<div className='my-8' key={data.id}>
+      <h1 className="font-bold text-2xl">Related Products</h1>
+      <RelatedProducts/>
+    </div>): ' '} */}
+    </>
   );
 };
 

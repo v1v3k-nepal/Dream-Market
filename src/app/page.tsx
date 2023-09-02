@@ -2,9 +2,10 @@
 import ProductContainer from "@/components/Products/ProductContainer/page";
 
 export default function Home() {
+  const url = "https://fakestoreapi.com/products"
   return (
-    <div className="px-[10%]">
-      <ProductContainer/>
+    <div>
+      <ProductContainer apiEndpoint={url}/>
     </div>
   )
 }

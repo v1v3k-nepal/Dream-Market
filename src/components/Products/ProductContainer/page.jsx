@@ -2,8 +2,8 @@ import ProductCard from "../ProductCard/page";
 import { useDispatch } from "react-redux";
 import { setProductData } from "../../../redux/productSlice"
 
-const getData = async ()=>{
-  const response = await fetch("https://fakestoreapi.com/products");
+const getData = async (apiEndpoint)=>{
+  const response = await fetch(apiEndpoint);
   const data = await response.json();
   if (!response.ok){
     throw new Error("Failed to fetch Data")
@@ -11,11 +11,11 @@ const getData = async ()=>{
   return data;
 }
 
-const ProductContainer = async () => {
+const ProductContainer = async ({apiEndpoint}) => {
   
     const dispatch = useDispatch();
 
-    const data = await getData();
+    const data = await getData(apiEndpoint);
     dispatch(setProductData(data));
     // console.log(data);
 
