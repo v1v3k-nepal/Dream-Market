@@ -15,8 +15,8 @@ const ProductCard = ({prodData}) => {
             </div>
         </div>
         <div className='p-1 sm:p-3 bg-green-600 max-w-[300px] rounded-b-md'>
-        <h1 className='font-bold text-base sm:text-lg overflow-hidden whitespace-nowrap text-ellipsis'>{prodData.title}</h1>
-        <p><span>&#36; </span>{prodData.price}</p>
+        <h1 className='font-bold text-white text-base sm:text-lg overflow-hidden whitespace-nowrap text-ellipsis'>{prodData.title}</h1>
+        <p className='text-white'><span>&#36; </span>{prodData.price}</p>
         </div>
     </div>
     </Link>
