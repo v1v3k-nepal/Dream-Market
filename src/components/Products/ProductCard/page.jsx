@@ -1,12 +1,14 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 // import { useSelector } from "react-redux";
 
 const ProductCard = ({prodData}) => {
   // const productData = useSelector((state) => state.product.productData);
   // console.log(prodData)
   return (
-    <div className='max-w-[300px] h-fit bg-white cursor-pointer rounded-md'>
+    <Link href={`/product/${prodData.id}`}>
+        <div className='max-w-[300px] h-fit bg-white cursor-pointer rounded-md'>
         <div className=' flex items-center p-2 sm:p-5'>
             <div className="relative w-[40vw] h-[30vw] sm:w-[20vw] sm:h-[18vw] mx-auto">
                 <Image src={prodData.image} alt="Product Image" fill={true} className='object-contain'></Image>
@@ -17,7 +19,8 @@ const ProductCard = ({prodData}) => {
         <p><span>&#36; </span>{prodData.price}</p>
         </div>
     </div>
+    </Link>
   )
 }
 
-export default ProductCard
+export default ProductCard;
