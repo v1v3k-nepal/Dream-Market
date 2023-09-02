@@ -2,9 +2,9 @@
 import React from "react";
 import Image from "next/image";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { incrementQuantity, decrementQuantity } from "@/redux/quantitySlice";
+import { incrementQuantity, decrementQuantity } from "@/redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart } from "@/redux/cartSlice";
+import { removeFromCart, addToCart, calculateCartSubtotal } from "@/redux/cartSlice";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -12,8 +12,15 @@ const CartItems = () => {
   const dispatch = useDispatch();
   const quantity = useSelector((state) => state.quantity);
   const cartItems = useSelector((state) => state.cart.cartItems);
-  // console.log(cartItems);
-  return cartItems.map((item) => (
+//   const cartLocalData = localStorage.getItem("cartItemsLocal");
+//   const cartItems = JSON.parse(cartLocalData)
+//   console.log(cartItems);
+
+    // const handleCartUpdate = (productData, quantity)=>{
+    //     dispatch(addToCart({...productData, quantity}));
+    // }
+
+  return cartItems?.map((item) => (
     <div className="flex items-center gap-5 bg-[#266b5d] p-2 rounded-md mb-5" key={item.id}>
       <div className="bg-white p-2 rounded-md">
         <div className="relative w-[70px] h-[70px]">
@@ -27,19 +34,20 @@ const CartItems = () => {
           onClick={()=>{dispatch(removeFromCart(item.id)); toast.success("Product Removed From Cart")}}/>
         </div>
         <div className="text-xl flex gap-5 border-2 px-3 border-green-500 items-center w-fit cursor-pointer bg-[#266b5d]">
-          <button onClick={() => dispatch(decrementQuantity())} className="text-center">
+          <button 
+          onClick={() => {dispatch(decrementQuantity(item.id)); dispatch(calculateCartSubtotal())}} className="text-center">
             -
           </button>
-          <div className="border-x-2 border-green-500 w-8 py-1 text-center">{quantity}</div>
-          <button onClick={() => dispatch(incrementQuantity())} className="text-center">
+          <div className="border-x-2 border-green-500 w-8 py-1 text-center">{item.quantity}</div>
+          <button onClick={() => {dispatch(incrementQuantity(item.id)); dispatch(calculateCartSubtotal()) }} className="text-center">
             +
           </button>
         </div>
         <div className="mt-2 flex gap-1">
-            <p>{quantity}</p>
+            <p>{item.quantity}</p>
             <p>x</p>
             <p><span>&#36;</span>{item.price} = </p>
-            <p><span>&#36;</span>{Math.round(quantity*item.price)}</p>
+            <p><span>&#36;</span>{Math.round(item.quantity*item.price)}</p>
         </div>
       </div>
       <ToastContainer/>

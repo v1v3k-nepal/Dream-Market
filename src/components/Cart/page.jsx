@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 
 const Cart = ({setShowCart}) => {
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const cartSubtotal = useSelector((state) => state.cart.cartSubtotal);
   return (
     <div className='fixed top-0 right-0 w-full h-full sm:w-[400px] bg-[#34a96f] transition-all px-2 sm:px-5 py-5 z-10'>
       <div className='flex justify-between mb-5'>
@@ -18,10 +19,10 @@ const Cart = ({setShowCart}) => {
         <BsCartX size={250} className="mx-auto" />
         <h1 className='font-bold text-2xl text-center'>Cart is Empty !! </h1>
         <Link href="/"><button className='bg-[#266b5d] w-full py-3'>Start Shopping</button></Link>
-      </div>): <CartItems/>}
+      </div>): <div className='sm:max-h-[70vh] overflow-scroll'><CartItems/></div>}
 
-      <div>
-        <h1 className='font-bold mb-5 text-2xl'>Subtotal: </h1>
+      <div className='mt-auto'>
+        <h1 className='font-bold mb-5 text-2xl'>Subtotal: <span>&#36;</span>{Math.round(cartSubtotal)}</h1>
         <button className='bg-[#266b5d] w-full py-3'>CheckOut</button>
       </div>
     </div>
