@@ -5,18 +5,24 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterest} from "r
 import {AiFillStar, AiOutlineStar} from "react-icons/ai"
 import useSWR from "swr";
 import { useDispatch, useSelector } from "react-redux";
-import { incrementQuantity, decrementQuantity} from "@/redux/quantitySlice";
+import { incrementQuantity, decrementQuantity, setQuantity} from "@/redux/quantitySlice";
+import { addToCart } from "@/redux/cartSlice";
 
 
 const SingleProductPage = ({ params }) => {
   const quantity = useSelector((state) => state.quantity);
+  const cartItems = useSelector((state) => state.cart.cartItems)
   const dispatch = useDispatch();
   const { id } = params;
-  // console.log(quantity)
 
   const fetcher = (url) => fetch(url).then((res) => res.json());
   const { data, error, isLoading, mutate } = useSWR(`https://fakestoreapi.com/products/${id}`, fetcher);
   // console.log(data);
+
+  const handleAddToCart = (productData, quantity)=>{
+    dispatch(addToCart({...productData, quantity}));
+    console.log(cartItems);
+  }
 
 
   return (
@@ -40,7 +46,8 @@ const SingleProductPage = ({ params }) => {
               <div className="border-x-2 border-green-500 w-10 sm:w-14 p-1 text-center">{quantity}</div>
               <button onClick={()=>dispatch(incrementQuantity())} className="text-center text-3xl">+</button>
             </div>
-            <button className="bg-green-700 px-3 sm:px-5  py-2 sm:py-3 text-white text-base sm:text-xl font-bold outline-none">ADD TO CART</button>
+            <button className="bg-green-700 px-3 sm:px-5  py-2 sm:py-3 text-white text-base sm:text-xl font-bold outline-none"
+            onClick={()=>handleAddToCart(data, quantity)}>ADD TO CART</button>
           </div>
           <div className="flex flex-col gap-2 mt-5">
             <div className="flex gap-1">
