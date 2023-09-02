@@ -27,6 +27,7 @@ const SingleProductPage = ({ params }) => {
   const handleAddToCart = (productData, quantity)=>{
     dispatch(addToCart({...productData, quantity}));
     dispatch(calculateCartSubtotal());
+    setQuantity(1);
     toast.success("Product Added to Cart")
     // console.log(cartItems);
   }
