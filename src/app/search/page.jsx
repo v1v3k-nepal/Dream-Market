@@ -6,7 +6,7 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import Link from "next/link";
 
 const Search = () => {
-  // const [searchKeywords, setSearchKeywords] = useState("")
+  const [query, setQuery] = useState("")
   const productData = useSelector((state) => state.product.productData);
   const [filteredProducts, setFilteredProducts] = useState([])
 
@@ -31,8 +31,11 @@ const Search = () => {
   return (
     <div className="mt-5 md:mx-[5%] lg:mx-[10%]">
       <div className="flex mb-5">
-        <input type="text" placeholder="Search Products" className="p-3 w-[85%] outline-none text-black" onChange={(e)=> searchProduct(e.target.value)}/>
-        <button className="bg-green-700 p-3 flex-grow">Search</button>
+        <input type="text" placeholder="Search Products" className="p-3 w-[85%] outline-none text-black" 
+        onChange={(e)=> {searchProduct(e.target.value); setQuery(e.target.value)}}/>
+        <button className="bg-green-700 p-3 flex-grow" 
+        // onClick={()=> searchProduct(query)}
+        >Search</button>
       </div>
       {filteredProducts?.map((item) => (
         <Link href={`/product/${item.id}`} key={item.id}>
