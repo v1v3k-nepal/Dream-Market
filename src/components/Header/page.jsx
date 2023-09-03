@@ -24,7 +24,7 @@ const Header = () => {
                     <AiOutlineHeart className="text-2xl text-white"/>
                     <div className='relative'>
                     <AiOutlineShoppingCart className="text-2xl text-white" onClick={()=>setShowCart(true)}/>
-                    {totalQty > 0 && <span className='w-[25px] h-[20px] bg-green-800 absolute rounded-xl text-center -top-[10px] left-[10px] text-sm'>{totalQty}</span>}
+                    {totalQty > 0 && <span className='w-[25px] h-[20px] bg-green-800 absolute rounded-xl text-center -top-[10px] left-[10px] text-sm text-white'>{totalQty}</span>}
                     </div>
                 </div>
             </nav>
