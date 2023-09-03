@@ -44,28 +44,28 @@ const CartItems = () => {
       </div>
       <div>
         <div className="flex gap-3">
-          <h1 className="whitespace-nowrap overflow-hidden text-ellipsis max-w-[170px] sm:max-w-[200px] mb-3">{item.title}</h1>
-          <AiOutlineCloseCircle size={25} className="cursor-pointer" 
+          <h1 className="whitespace-nowrap overflow-hidden text-ellipsis max-w-[170px] sm:max-w-[200px] mb-3 text-white">{item.title}</h1>
+          <AiOutlineCloseCircle size={25} className="cursor-pointer text-white" 
           onClick={()=>{handleRemoveFromCart(item.id)}}/>
         </div>
         <div className="text-xl flex gap-5 border-2 px-3 border-green-500 items-center w-fit cursor-pointer bg-[#266b5d]">
           <button 
           onClick={() => {handleQtyDec(item.id)}} 
-          className="text-center">
+          className="text-center text-white">
             -
           </button>
-          <div className="border-x-2 border-green-500 w-8 py-1 text-center">{item.quantity}</div>
+          <div className="border-x-2 border-green-500 w-8 py-1 text-center text-white">{item.quantity}</div>
           <button 
           onClick={() => {handleQtyInc(item.id)}} 
-          className="text-center">
+          className="text-center text-white">
             +
           </button>
         </div>
         <div className="mt-2 flex gap-1">
-            <p>{item.quantity}</p>
-            <p>x</p>
-            <p><span>&#36;</span>{item.price} = </p>
-            <p><span>&#36;</span>{Math.round(item.quantity*item.price)}</p>
+            <p className="text-white">{item.quantity}</p>
+            <p className="text-white">x</p>
+            <p className="text-white"><span>&#36;</span>{item.price} = </p>
+            <p className="text-white"><span>&#36;</span>{Math.round(item.quantity*item.price)}</p>
         </div>
       </div>
       <ToastContainer/>
