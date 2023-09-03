@@ -1,22 +1,40 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import Link from "next/link";
 
 const Search = () => {
+  // const [searchKeywords, setSearchKeywords] = useState("")
   const productData = useSelector((state) => state.product.productData);
-  // const dispatch = useDispatch();
-  // const cartItems = useSelector((state) => state.cart.cartItems);
-  console.log("I am search page", productData);
+  const [filteredProducts, setFilteredProducts] = useState([])
+
+  const searchProduct = (searchKeywords) => {
+    // setSearchKeywords(searchValue);
+    const lowerCaseKeywords = searchKeywords.toLowerCase();
+    const filteredData = productData.filter((product) => 
+    product.title.toLowerCase().includes(lowerCaseKeywords) || 
+    product.description.toLowerCase().includes(lowerCaseKeywords)
+     // product.title.includes(searchKeywords) || product.description.includes(searchKeywords));
+    );
+    if(!searchKeywords){
+      setFilteredProducts(productData);
+    }
+    setFilteredProducts(filteredData);
+  };
+
+  useEffect(()=>{
+    searchProduct('')
+  },[]);
+
   return (
     <div className="mt-5 md:mx-[5%] lg:mx-[10%]">
       <div className="flex mb-5">
-        <input type="text" placeholder="Search Products" className="p-3 w-[85%] outline-none text-black" />
+        <input type="text" placeholder="Search Products" className="p-3 w-[85%] outline-none text-black" onChange={(e)=> searchProduct(e.target.value)}/>
         <button className="bg-green-700 p-3 flex-grow">Search</button>
       </div>
-      {productData.map((item) => (
+      {filteredProducts?.map((item) => (
         <Link href={`/product/${item.id}`} key={item.id}>
           <div key={item.id} className="mb-5 flex items-center">
             <div className="relative w-[20vw] h-[20vw] md:w-[10vw] md:h-[10vw] lg:w-[8vw] lg:h-[8vw] bg-white rounded-md">
