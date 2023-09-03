@@ -47,4 +47,45 @@ The following technologies have been used to develop the Online Store E-Commerce
 
 - **Redux Toolkit:** A library for managing the state of application, providing a predictable and efficient state container.
 
+
+## How to Run This Project Locally
+
+To run this project locally on your development machine, follow these steps:
+
+### Prerequisites
+
+Before you begin, ensure you have the following software installed on your system:
+
+- **Node.js:** You can download and install it from [nodejs.org](https://nodejs.org/).
+
+### Clone the Repository
+
+1. Open your terminal/command prompt.
+
+2. Navigate to the directory where you want to clone the project.
+
+3. Run the following command to clone the project repository:
+
+   ```bash
+   git clone https://github.com/v1v3k-nepal/frontend-assignment.git
+
+### Install Dependencies
+1. Navigate to the project directory.
+   ```bash
+   cd frontend-assignment
+
+2. Install project dependencies by running the following command:
+   ```bash
+   npm install
+
+### Run the development Server
+1. After installing the dependencies and configuring environment variables, start the development server by running:
+   ```bash
+   npm run dev
+
+2. The development server should now be running. Open your web browser and access the application at:
+   ```bash
+   http://localhost:3000
+
+### Explore
 This documentation provides an overview of the key features and technologies used in the Online Store project. For more detailed information and instructions on how to use specific features, please refer to the project's source code and additional documentation.
