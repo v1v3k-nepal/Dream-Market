@@ -9,7 +9,7 @@ const Cart = ({setShowCart}) => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const cartSubtotal = useSelector((state) => state.cart.cartSubtotal);
   return (
-    <div className='fixed top-0 right-0 w-full h-full sm:w-[400px] bg-[#34a96f] transition-all px-2 sm:px-5 py-5 z-10'>
+    <div className='fixed top-0 right-0 w-full h-full sm:w-[400px] bg-[#34a96f] transition-all px-2 sm:px-5 py-5 z-10 flex flex-col'>
       <div className='flex justify-between mb-5'>
         <h1 className='font-bold text-2xl'>Shopping Cart:</h1>
         <div onClick={()=>setShowCart(false)} className='cursor-pointer'><AiOutlineCloseCircle size={30}/></div>
