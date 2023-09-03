@@ -20,7 +20,7 @@ const ProductContainer = async ({apiEndpoint}) => {
     // console.log(data);
 
   return (
-    <div className="grid  grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-5 gap-8">
+    <div className="grid  grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 my-5 gap-8">
       {data?.map((item)=>(
         <ProductCard key={item.id} prodData={item}/>
       ))}

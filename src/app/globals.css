@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.min-height{
+  min-height: 100vh;
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
