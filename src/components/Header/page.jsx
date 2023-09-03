@@ -3,9 +3,11 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import {AiOutlineSearch, AiOutlineHeart, AiOutlineShoppingCart} from "react-icons/ai"
 import Cart from "@/components/Cart/page"
+import {useSelector} from "react-redux"
 
 const Header = () => {
   const [showCart, setShowCart] = useState(false);
+  const totalQty = useSelector((state) => state.cart.cartQuantity);
   return (
     <>
     <div>
@@ -20,7 +22,10 @@ const Header = () => {
                 <div className='flex gap-3 sm:gap-5 cursor-pointer'>
                      <Link href="/search"><AiOutlineSearch className="text-[26px]"/></Link>
                     <AiOutlineHeart className="text-2xl"/>
+                    <div className='relative'>
                     <AiOutlineShoppingCart className="text-2xl" onClick={()=>setShowCart(true)}/>
+                    {totalQty > 0 && <span className='w-[25px] h-[20px] bg-green-800 absolute rounded-xl text-center -top-[10px] left-[10px] text-sm'>{totalQty}</span>}
+                    </div>
                 </div>
             </nav>
         </div>

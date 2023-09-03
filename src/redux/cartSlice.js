@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   cartItems: [],
   cartSubtotal: 0,
+  cartQuantity: 0,
 };
 
 const cartSlice = createSlice({
@@ -54,9 +55,16 @@ const cartSlice = createSlice({
         subtotal += item.price * item.quantity;
       } 
       state.cartSubtotal = subtotal;  
+    },
+    calculateCartQty: (state, action)=>{
+      let qty = 0;
+      for (const item of state.cartItems){
+        qty += item.quantity;
+      }
+      state.cartQuantity = qty;
     }
   },
 });
 
-export const { addToCart, removeFromCart, incrementQuantity, decrementQuantity, calculateCartSubtotal } = cartSlice.actions;
+export const { addToCart, removeFromCart, incrementQuantity, decrementQuantity, calculateCartSubtotal, calculateCartQty } = cartSlice.actions;
 export default cartSlice.reducer;

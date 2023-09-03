@@ -5,7 +5,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterest} from "r
 import {AiFillStar, AiOutlineStar} from "react-icons/ai"
 import useSWR from "swr";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, calculateCartSubtotal} from "@/redux/cartSlice";
+import { addToCart, calculateCartSubtotal, calculateCartQty} from "@/redux/cartSlice";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import RelatedProducts from "@/components/Products/RelatedProducts/page"
@@ -27,6 +27,7 @@ const SingleProductPage = ({ params }) => {
   const handleAddToCart = (productData, quantity)=>{
     dispatch(addToCart({...productData, quantity}));
     dispatch(calculateCartSubtotal());
+    dispatch(calculateCartQty())
     setQuantity(1);
     toast.success("Product Added to Cart")
     // console.log(cartItems);
