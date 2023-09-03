@@ -16,9 +16,6 @@ const CartItems = () => {
 //   const cartItems = JSON.parse(cartLocalData)
 //   console.log(cartItems);
 
-    // const handleCartUpdate = (productData, quantity)=>{
-    //     dispatch(addToCart({...productData, quantity}));
-    // }
 
   return cartItems?.map((item) => (
     <div className="flex items-center gap-5 bg-[#266b5d] p-2 rounded-md mb-5" key={item.id}>
