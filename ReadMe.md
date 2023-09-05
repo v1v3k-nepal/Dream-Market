@@ -1,4 +1,4 @@
-# Online Store E-Commerce Web App Documentation
+# Dream Market E-Commerce Web App Documentation
 
 ## Project Overview
 
