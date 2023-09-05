@@ -8,6 +8,17 @@ import { useSelector } from "react-redux";
 const Cart = ({setShowCart}) => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const cartSubtotal = useSelector((state) => state.cart.cartSubtotal);
+
+const handlePayment = async (cartItems, cartSubtotal)=>{
+  const response = await fetch("/api/initiatePayment", {
+    method: "POST",
+    body: JSON.stringify(cartItems,cartSubtotal)
+  })
+  const payData = await response.json();
+
+  console.log("Client Page",payData.payment_url)
+  window.location.href = payData.payment_url
+}
   return (
     <div className='fixed top-0 right-0 w-full h-full sm:w-[400px] bg-[#34a96f] transition-all px-2 sm:px-5 py-5 z-10 flex flex-col'>
       <div className='flex justify-between mb-5'>
@@ -23,7 +34,7 @@ const Cart = ({setShowCart}) => {
 
       <div className='mt-auto'>
         <h1 className='font-bold mb-5 text-2xl text-white'>Subtotal: <span>&#36;</span>{Math.round(cartSubtotal)}</h1>
-        <button className='bg-[#266b5d] w-full py-3 text-white'>CheckOut</button>
+        <button className='bg-[#266b5d] w-full py-3 text-white' onClick={()=>handlePayment(cartItems, cartSubtotal)}>CheckOut</button>
       </div>
     </div>
   )
