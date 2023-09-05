@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a Next.js project for an E-Commerce Web App named "Online Store." It offers a wide range of features to enhance the user shopping experience.
+This is a Next.js project for an E-Commerce Web App named "Dream Market." It offers a wide range of features to enhance the user shopping experience.
 
 ## Features
 
@@ -50,7 +50,12 @@ The following technologies have been used to develop the Online Store E-Commerce
 
 ## How to Run This Project Locally
 
-To run this project locally on your development machine, follow these steps:
+You can see this project live at:
+
+
+      https://your-dream-market.vercel.app/
+
+### However, To run this project locally on your development machine, follow these steps:
 
 ### Prerequisites
 
