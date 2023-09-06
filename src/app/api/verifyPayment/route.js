@@ -6,7 +6,7 @@ export const POST = async (request)=>{
  
     try {
   
-        const response = await fetch("https://a.khalti.com/api/v2/epayment/initiate/", {
+        const response = await fetch("https://a.khalti.com/api/v2/epayment/lookup/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

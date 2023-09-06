@@ -8,7 +8,7 @@ import Footer from "@/components/Footer/page";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Online Store",
+  title: "Dream Market",
   description: "This is an E-Commerce App Based on Next JS",
 };
 

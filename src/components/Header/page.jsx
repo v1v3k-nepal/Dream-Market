@@ -18,7 +18,7 @@ const Header = () => {
                 <li className='font-bold text-xl text-white'>About</li>
                 <li className='font-bold text-xl text-white'>Category</li>
                 </ul>
-                <Link href="/"><h1 className='font-bold text-2xl lg:text-3xl text-white'>Online Store</h1></Link>
+                <Link href="/"><h1 className='font-bold text-2xl lg:text-3xl text-white'>Dream Market</h1></Link>
                 <div className='flex gap-3 sm:gap-5 cursor-pointer'>
                      <Link href="/search"><AiOutlineSearch className="text-[26px] text-white"/></Link>
                     <AiOutlineHeart className="text-2xl text-white"/>
