@@ -24,8 +24,6 @@ const Payment = () => {
 useEffect(()=>{
 
   const verifyPayment = async (pidx)=>{
-    
-    router.push("/payment")
 
     const payload = {"pidx": pidx}
     const response = await fetch("/api/verifyPayment", {
