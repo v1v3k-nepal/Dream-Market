@@ -42,10 +42,12 @@ useEffect(()=>{
 
     setPaymentStatus(data.status);
 
-    if(paymentStatus!== "Completed"){
-      router.push("/paymentFailure")
-    }else{
-      router.push("paymentSuccess")
+    if(data){
+      if(data.status!== "Completed"){
+        router.push("/paymentFailure")
+      }else{
+        router.push("paymentSuccess")
+      }
     }
   }
 
