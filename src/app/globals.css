@@ -6,6 +6,29 @@
   min-height: 100vh;
 }
 
+.spinLoading{
+  animation: loading 2s linear infinite;
+}
+
+.progress-bar-fill{
+  animation: fill 2.5s linear infinite
+}
+
+@keyframes fill {
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 100%;
+  }
+}
+
+@keyframes loading {
+  to {
+    transform: rotate(360deg);
+}
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

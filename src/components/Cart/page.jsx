@@ -15,8 +15,8 @@ const handlePayment = async (cartItems, cartSubtotal)=>{
 
   const purchaseOrderId = "testOrder123";
   const payload = {
-    "return_url": "http://localhost:3000/payment",
-    "website_url": "http://localhost:3000",
+    "return_url": "https://your-dream-market.vercel.app/payment",
+    "website_url": "https://your-dream-market.vercel.app",
     "amount": cartSubtotal * 100, // Convert to paisa (assuming cartSubTotal is in rupees)
     "purchase_order_id": purchaseOrderId,
     "purchase_order_name": "Product Name",
