@@ -25,16 +25,16 @@ const Shipping = () => {
           {cartItems.map((item) => (
             <div key={item.id} className="border-b-2 border-gray-400 py-2">
               <div className="flex">
-                <h1 className="max-w-[150px] sm:max-w-[200px] whitespace-nowrap overflow-hidden text-ellipsis mb-2">{item.title}</h1>
+                <h1 className="max-w-[150px] sm:max-w-[250px] md:max-w-[350px] lg:max-w-[450px] whitespace-nowrap overflow-hidden text-ellipsis mb-2">{item.title}</h1>
                 <p className="ml-auto">NPR {item.price}</p>
               </div>
               <div className="pl-1">
-                <div className="relative w-[20vw] h-[20vw] sm:w-[15vw] sm:h-[15vw] md:w-[10vw] md:h-[10vw] lg:w-[5vw] lg:h-[5vw] bg-white rounded-md mb-1">
+                <div className="relative w-[20vw] h-[20vw] sm:w-[15vw] sm:h-[15vw] md:w-[10vw] md:h-[10vw] lg:w-[7vw] lg:h-[7vw] bg-white rounded-md mb-1">
                   <Image
                     src={item.image}
                     alt="product Image"
                     fill={true}
-                    className="object-contain p-1"
+                    className="object-contain p-2"
                   ></Image>
                 </div>
                 <p>Quantity: {item.quantity}</p>
