@@ -8,6 +8,8 @@ const Shipping = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const cartSubtotal = useSelector((state) => state.cart.cartSubtotal);
   const shippingCost = useSelector((state) => state.cart.shippingCost);
+  const total = parseFloat(cartSubtotal) + parseFloat(shippingCost);
+  const totalPayment = total.toFixed(2);
 
 
   return (
@@ -41,7 +43,7 @@ const Shipping = () => {
                 <h1>Product Total</h1>
                 <p className="ml-auto">
                   {item.quantity} * {item.price} = NPR{" "}
-                  {item.quantity * item.price}
+                  {(item.quantity * item.price).toFixed(2)}
                 </p>
               </div>
             </div>
@@ -52,7 +54,7 @@ const Shipping = () => {
           </div>
           <div className="flex font-bold text-base sm:text-2xl mt-2">
             <h1 className="">Total Payment:</h1>
-            <p className="ml-auto">NPR {cartSubtotal + shippingCost}</p>
+            <p className="ml-auto">NPR {totalPayment}</p>
           </div>
           <button className="bg-green-600 w-full p-2 text-xl font-bold rounded-md mt-5" onClick={()=>router.push("/shipping")}>Place Order</button>
         </div>

@@ -65,7 +65,7 @@ const CartItems = () => {
             <p className="text-white">{item.quantity}</p>
             <p className="text-white">x</p>
             <p className="text-white"><span>&#36;</span>{item.price} = </p>
-            <p className="text-white"><span>&#36;</span>{Math.round(item.quantity*item.price)}</p>
+            <p className="text-white"><span>&#36;</span>{(item.quantity*item.price).toFixed(2)}</p>
         </div>
       </div>
       <ToastContainer/>

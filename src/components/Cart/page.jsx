@@ -27,7 +27,7 @@ const Cart = ({setShowCart}) => {
       </div>): <div className='sm:max-h-[70vh] overflow-scroll'><CartItems/></div>}
 
       <div className='mt-auto'>
-        <h1 className='font-bold mb-5 text-2xl text-white'>Subtotal: <span>&#36;</span>{Math.round(cartSubtotal)}</h1>
+        <h1 className='font-bold mb-5 text-2xl text-white'>Subtotal: <span>&#36;</span>{cartSubtotal}</h1>
         <button className='bg-[#266b5d] w-full py-3 text-white' onClick={()=>{setShowCart(false); router.push("/checkout");}}>CheckOut</button>
       </div>
     </div>

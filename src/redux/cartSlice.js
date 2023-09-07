@@ -5,7 +5,7 @@ const initialState = {
   cartItems: [],
   cartSubtotal: 0,
   cartQuantity: 0,
-  shippingCost: 0,
+  shippingCost: 0.00,
 };
 
 const cartSlice = createSlice({
@@ -55,7 +55,7 @@ const cartSlice = createSlice({
       for (const item of state.cartItems) {
         subtotal += item.price * item.quantity;
       } 
-      state.cartSubtotal = subtotal;  
+      state.cartSubtotal = subtotal.toFixed(2);  
     },
     calculateCartQty: (state, action)=>{
       let qty = 0;
