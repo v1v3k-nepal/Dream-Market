@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from "react-redux";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useRouter } from 'next/navigation';
@@ -8,6 +8,9 @@ const PaymentSuccess = () => {
   const router = useRouter();
   const paymentData = useSelector((state) => state.payment.paymentData);
   // console.log(paymentData)
+  useEffect(()=>{
+    if(!paymentData.amount) router.push("/")
+  })
   return (
     <div className='flex flex-col border-2 border-green-500 rounded-2xl p-5 my-5 md:my-8 max-w-[900px] mx-auto'>
       <AiOutlineCloseCircle size={25} className="self-end cursor-pointer" onClick={()=> router.push("/")}/>

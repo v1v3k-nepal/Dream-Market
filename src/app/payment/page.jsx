@@ -29,14 +29,13 @@ const Payment = () => {
 useEffect(()=>{
 
   const verifyPayment = async (pidx)=>{
-
     const payload = {"pidx": pidx}
     const response = await fetch("/api/verifyPayment", {
       method: "POST",
       body: JSON.stringify(payload)
     })
     const data = await response.json();
-    console.log("I am payment Page",data);
+    // console.log("I am payment Page",data);
 
     data ? setIsLoading(false) : setIsLoading(true)
 
@@ -52,8 +51,14 @@ useEffect(()=>{
     }
   }
 
+  
+  if(!paymentData.pidx){
+    router.push("/")
+  }else{
+    verifyPayment(paymentData.pidx)
+  }
+
   // verifyPayment(params.get("pidx"))
-  verifyPayment(paymentData.pidx)
 
   // const pidx_local = localStorage.getItem("pidx");
   // verifyPayment(pidx_local)

@@ -1,13 +1,18 @@
 "use client"
 import { useRouter } from 'next/navigation';
-import React from 'react'
+import React, {useEffect} from 'react'
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import {IoCloseCircleOutline} from "react-icons/io5"
 import { useSelector } from 'react-redux';
 
 const PaymentFailure = () => {
   const router = useRouter()
-  const paymentStatus = useSelector((state)=> state.payment.paymentStatus)
+  const paymentStatus = useSelector((state)=> state.payment.paymentStatus);
+
+    useEffect(()=>{
+    if(!paymentStatus) router.push("/")
+  })
+
   return (
     <div className='flex flex-col border-2 border-red-500 rounded-2xl p-5 my-5 md:my-8 max-w-[900px] mx-auto'>
     <AiOutlineCloseCircle size={25} className="self-end cursor-pointer" onClick={()=> router.push("/")}/>
