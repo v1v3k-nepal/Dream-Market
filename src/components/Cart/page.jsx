@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import {AiOutlineCloseCircle} from "react-icons/ai"
 import {BsCartX} from "react-icons/bs"
@@ -6,10 +7,12 @@ import CartItems from "./cartItems/page"
 import { useSelector } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/navigation'
 
 const Cart = ({setShowCart}) => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const cartSubtotal = useSelector((state) => state.cart.cartSubtotal);
+  const router = useRouter();
 
 const handlePayment = async (cartItems, cartSubtotal)=>{
 
@@ -68,7 +71,7 @@ const handlePayment = async (cartItems, cartSubtotal)=>{
 
       <div className='mt-auto'>
         <h1 className='font-bold mb-5 text-2xl text-white'>Subtotal: <span>&#36;</span>{Math.round(cartSubtotal)}</h1>
-        <button className='bg-[#266b5d] w-full py-3 text-white' onClick={()=>handlePayment(cartItems, cartSubtotal)}>CheckOut</button>
+        <button className='bg-[#266b5d] w-full py-3 text-white' onClick={()=>router.push("/checkout")}>CheckOut</button>
       </div>
       <ToastContainer/>
     </div>

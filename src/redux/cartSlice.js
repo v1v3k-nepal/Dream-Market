@@ -5,6 +5,7 @@ const initialState = {
   cartItems: [],
   cartSubtotal: 0,
   cartQuantity: 0,
+  shippingCost: 0,
 };
 
 const cartSlice = createSlice({
