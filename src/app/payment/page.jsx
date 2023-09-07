@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { setPaymentData } from "@/redux/paymentSlice"
+import { setPaymentData, setPaymentStatus } from "@/redux/paymentSlice"
 import { useDispatch } from 'react-redux';
 // import PaymentSuccess from '../paymentSuccess/page';
 // import PaymentFailure from '../paymentFailure/page';
@@ -12,7 +12,7 @@ const Payment = () => {
 
   const router = useRouter();
   const params = useSearchParams();
-  const [paymentStatus, setPaymentStatus] = useState("")
+  // const [paymentStatus, setPaymentStatus] = useState("")
   const [isLoading, setIsLoading] = useState(true);
 
   const paymentData = {
@@ -40,9 +40,10 @@ useEffect(()=>{
 
     data ? setIsLoading(false) : setIsLoading(true)
 
-    setPaymentStatus(data.status);
+    // setPaymentStatus(data.status);
 
     if(data){
+      dispatch(setPaymentStatus(data.status))
       if(data.status!== "Completed"){
         router.push("/paymentFailure")
       }else{
