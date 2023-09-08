@@ -80,7 +80,7 @@ const Shipping = () => {
 
   return (
     <div className="flex flex-col items-center justify-center border-green-600 border-2 
-    rounded-2xl my-5 p-5 w-fit mx-auto">
+    rounded-2xl my-5 p-5 sm:p-10 sm:w-fit mx-auto">
         <ToastContainer/>
       <h1 className="font-bold text-2xl lg:text-3xl text-center mb-5">
         Shipping Details
@@ -100,7 +100,7 @@ const Shipping = () => {
               onChange={handleChange}
               onBlur={handleBlur}
               placeholder="Full Name"
-              className="w-[80vw] lg:w-[30vw]"
+              className="w-[80vw] sm:w-[70vw] lg:w-[30vw]"
               // required
             />
             {errors.fullname && touched.fullname ? (
@@ -187,7 +187,7 @@ const Shipping = () => {
               onChange={handleChange}
               onBlur={handleBlur}
               placeholder="City Name"
-              className="w-[80vw] lg:w-[30vw]"
+              className="w-[80vw] sm:w-[70vw] lg:w-[30vw]"
               // required
             />
             {errors.city && touched.city ? (
@@ -252,7 +252,7 @@ const Shipping = () => {
           </div>
         </div>
         </div>
-        <button type="submit" className="bg-green-600 font-bold text-xl mt-6 p-3 rounded-md w-full"
+        <button type="submit" className="bg-green-600 font-bold text-xl mt-6 p-3 rounded-md w-full text-white"
         onClick={()=>{if(!isValid) toast.error("Please Enter Valid Shipping Data")}}>
           Place Order
         </button>

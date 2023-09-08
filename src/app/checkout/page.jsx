@@ -56,7 +56,7 @@ const Shipping = () => {
             <h1 className="">Total Payment:</h1>
             <p className="ml-auto">NPR {totalPayment}</p>
           </div>
-          <button className="bg-green-600 w-full p-2 text-xl font-bold rounded-md mt-5" onClick={()=>router.push("/shipping")}>Place Order</button>
+          <button className="bg-green-600 w-full p-2 text-xl font-bold rounded-md mt-5 text-white" onClick={()=>router.push("/shipping")}>Place Order</button>
         </div>
       </div>
     </div>
