@@ -21,6 +21,8 @@ const Shipping = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const cartSubtotal = useSelector((state) => state.cart.cartSubtotal);
   const shippingCost = useSelector((state) => state.cart.shippingCost);
+  const total = parseFloat(cartSubtotal) + parseFloat(shippingCost);
+  const totalPayment = parseInt(total.toFixed(2));
 
   const { 
     values, errors, isValid, touched, handleSubmit, submitForm, handleChange, handleBlur } = useFormik({
@@ -38,7 +40,7 @@ const Shipping = () => {
     const payload = {
         "return_url": "https://your-dream-market.vercel.app/payment",
         "website_url": "https://your-dream-market.vercel.app",
-        "amount": (cartSubtotal + shippingCost) * 100, // Convert to paisa (assuming cartSubTotal is in rupees)
+        "amount": totalPayment * 100, // Convert to paisa (assuming cartSubTotal is in rupees)
         "purchase_order_id": shippingData.mobile,
         "purchase_order_name": shippingData.fullname,
         "customer_info" : {
